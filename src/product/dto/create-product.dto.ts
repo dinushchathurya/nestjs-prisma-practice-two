@@ -2,7 +2,6 @@ import {
     IsNotEmpty,
     IsOptional,
     MaxLength,
-    Min,
     MinLength,
 } from 'class-validator';
 
@@ -15,7 +14,7 @@ export class CreateProductDto {
     @MaxLength(150)
     description?: string;
 
-    @Min(1.0)
+    @IsNotEmpty()
     price: number;
 
     @IsNotEmpty()

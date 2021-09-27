@@ -1,4 +1,4 @@
-import { Product, Prisma } from '@prisma/client';
+import { Product } from '@prisma/client';
 import { Transform } from 'class-transformer';
 
 export class ProductEntity implements Product {

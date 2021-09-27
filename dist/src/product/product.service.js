@@ -18,7 +18,41 @@ let ProductService = class ProductService {
     }
     getAllPublishedProducts() {
         return this.prisma.product.findMany({
-            where: { published: true }
+            where: {
+                published: true
+            }
+        });
+    }
+    getSingleProduct(id) {
+        return this.prisma.product.findUnique({
+            where: {
+                id: id
+            },
+        });
+    }
+    getDraftProducts() {
+        return this.prisma.product.findMany({
+            where: {
+                published: false
+            }
+        });
+    }
+    createProduct(createProductDto) {
+        return this.prisma.product.create({
+            data: createProductDto
+        });
+    }
+    updateProduct(id, updateProductDto) {
+        return this.prisma.product.update({
+            where: { id: id },
+            data: updateProductDto,
+        });
+    }
+    deleteProduct(id) {
+        return this.prisma.product.delete({
+            where: {
+                id: id
+            }
         });
     }
 };
