@@ -14,7 +14,7 @@ export class ProductController {
         return await this.productService.getAllPublishedProducts();
     }
 
-    @Get()
+    @Get('drafts')
     async getDraftProducts() :Promise<ProductEntity[]> {
         return await this.productService.getDraftProducts();
     }
